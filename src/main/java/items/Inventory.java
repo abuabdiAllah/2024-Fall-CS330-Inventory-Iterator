@@ -143,6 +143,7 @@ public class Inventory implements Iterable<ItemStack>, Cloneable
     {
         // Add the missing (one) line by using `this.slots.add(????)`
         this.slots.add(toAdd);
+        return;
     }
 
     /**
@@ -166,7 +167,7 @@ public class Inventory implements Iterable<ItemStack>, Cloneable
             }
         }
 
-        if (this.slots.size() < capacity) {
+        if (!(isFull())) {
             this.addItemStackNoCheck(stack);
             return true;
         }
